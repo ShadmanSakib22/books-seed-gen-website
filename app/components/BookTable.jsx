@@ -1,3 +1,4 @@
+import React from "react";
 import { ThumbsUp } from "lucide-react";
 import { flexRender } from "@tanstack/react-table";
 

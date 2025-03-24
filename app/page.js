@@ -30,8 +30,8 @@ const BookTester = () => {
   });
 
   const languages = [
-    { code: "en", name: "English (US)" },
-    { code: "en_GB", name: "English (UK)" },
+    { code: "en", name: "English" },
+    { code: "ru", name: "Russian" },
     { code: "fr", name: "French" },
     { code: "de", name: "German" },
     { code: "es", name: "Spanish" },
