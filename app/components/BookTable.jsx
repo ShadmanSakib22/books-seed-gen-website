@@ -21,7 +21,7 @@ export const BookTable = ({ table, columns }) => {
             <p className="text-sm text-accent">
               Published by {book.publisher} on {book.publishDate}
             </p>
-            <p className="mt-2">{book.description}</p>
+            <p className="mt-1 font-semibold">Authors: {book.authors}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               <p className="btn btn-sm btn-outline btn-accent">
                 <span className="font-semibold">GENRE:</span> {book.genre}

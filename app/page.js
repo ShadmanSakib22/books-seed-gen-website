@@ -143,13 +143,13 @@ const BookTester = () => {
       />
 
       {books.length > 0 ? (
-        <div
+        <main
           ref={parentRef}
           className="shadow-md shadow-base-300 border-2 border-base-200 rounded-lg overflow-auto relative"
           style={{ height: "70vh" }}
         >
           <BookTable table={table} columns={columns} />
-        </div>
+        </main>
       ) : (
         <div className="text-center p-10 bg-background rounded-lg">
           <p className="cta-text">Get started by entering Seed Data</p>
