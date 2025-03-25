@@ -40,7 +40,16 @@ export const Toolbar = ({
                 type="text"
                 className="input input-sm input-accent w-full"
                 value={seed}
-                onChange={(e) => setSeed(e.target.value)}
+                maxLength={8}
+                pattern="[a-zA-Z0-9]*"
+                onChange={(e) => {
+                  // Only allow alphanumeric characters
+                  const alphanumericValue = e.target.value.replace(
+                    /[^a-zA-Z0-9]/g,
+                    ""
+                  );
+                  setSeed(alphanumericValue);
+                }}
                 placeholder="Enter seed"
               />
               <button
@@ -58,7 +67,10 @@ export const Toolbar = ({
               type="number"
               className="input input-sm input-accent w-full"
               value={avgReviews}
-              onChange={(e) => setAvgReviews(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const value = e.target.value;
+                setAvgReviews(value === "" ? 0 : parseFloat(value));
+              }}
               min="0"
               step="0.1"
               placeholder="Average Reviews"

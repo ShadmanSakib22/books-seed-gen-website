@@ -8,7 +8,7 @@ import {
   getExpandedRowModel,
 } from "@tanstack/react-table";
 import { Minus, Plus } from "lucide-react";
-import { generateBooks, generateRandomSeed } from "./utils/bookGenerators";
+import { generateBooks } from "./utils/generateBooks";
 import { exportToCSV } from "./utils/exportCSV";
 import { Toolbar } from "./components/Toolbar";
 import { BookTable } from "./components/BookTable";
@@ -31,23 +31,20 @@ const BookTester = () => {
 
   const languages = [
     { code: "en", name: "English" },
-    { code: "ru", name: "Russian" },
-    { code: "fr", name: "French" },
-    { code: "de", name: "German" },
     { code: "es", name: "Spanish" },
-    { code: "ja", name: "Japanese" },
+    { code: "ru", name: "Russian" },
+    { code: "cn", name: "Chinese" },
   ];
 
   const handleRandomSeed = () => {
-    const newSeed = generateRandomSeed();
-    setSeed(newSeed);
+    setSeed(crypto.randomUUID().substring(0, 8));
   };
 
   useEffect(() => {
     if (seed) {
       const initialBooks = generateBooks(
         0,
-        20,
+        20, // load 20 books initially
         seed,
         language,
         avgLikes,
@@ -61,7 +58,7 @@ const BookTester = () => {
     if (seed) {
       const newBooks = generateBooks(
         books.length,
-        10,
+        10, // load 10 more books on scroll end
         seed,
         language,
         avgLikes,

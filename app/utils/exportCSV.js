@@ -21,7 +21,7 @@ export const exportToCSV = (books, seed) => {
   const url = URL.createObjectURL(blob);
 
   link.setAttribute("href", url);
-  link.setAttribute("download", `book-data-${seed}.csv`);
+  link.setAttribute("download", `BookTable-${seed}.csv`);
   link.style.visibility = "hidden";
 
   document.body.appendChild(link);
